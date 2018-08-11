@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-12">
       <h3>AppComponent</h3>
       <input
         type="text"
@@ -13,7 +13,30 @@
     </div>
   </div>
   <div class="row">
-    <div class="col-md-12">
+    <div class="col-sm-4">
+      <button class="btn" (click)="onPTagBtnClick()">Display Details</button>
+    </div>
+    <div class="col-sm-8">
+      <p *ngIf="showParagraph">What up Yo</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div
+      class="col-sm-12"
+      *ngFor="let click of buttonClicks; let i = index"
+      [ngStyle]="{backgroundColor: checkColor(i) ? 'blue' : 'transparent'}"
+      [ngClass]="{'white-text': checkColor(i)}">
+      {{click}}
+      <hr>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
       <hr>
       <app-servers></app-servers>
       <app-success-message></app-success-message>
