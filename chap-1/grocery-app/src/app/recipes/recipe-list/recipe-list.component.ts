@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Recipe } from '../recipe.model';
 
 @Component({
@@ -17,10 +17,15 @@ export class RecipeListComponent implements OnInit {
       'Barbecue or barbeque (informally BBQ or barbie) is a cooking method, a style of food, and a name for a meal or gathering at which this style of food is cooked and served.',
       'https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Barbecued_meats.jpg/1280px-Barbecued_meats.jpg')
   ];
+  @Output() recipeWasSelected = new EventEmitter<Recipe>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onRecipeSelected(recipe: Recipe) {
+    this.recipeWasSelected.emit(recipe);
   }
 
 }

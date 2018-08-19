@@ -6,4 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  activeSection = 'recipes';
+
+  onNavChange(selectedNav: string) {
+    this.activeSection = selectedNav;
+  }
 }
